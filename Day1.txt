@@ -1,0 +1,81 @@
+
+
+Angular Workshop 
+================================
+
+Setup
+-------------
+
+1. Get latest Nodejs (node -v)
+2. Get latest node package manger (npm -v)
+3. Downlaod the angular cli (npm -i @angular/cli) Link -> https://cli.angular.io/
+4. Delete any package json files you have on the root user ( Error : Cannot use the new command inside an Angular CLI project )
+5. Create you project folder ( ng new angularworkshop ) 
+6. Go to the project folder and right click and select open in VS 2017 
+7. Then follow :- https://community.dynamics.com/nav/b/navvanvugts/archive/2017/03/13/how-to-add-visual-studio-command-prompt-to-visual-studio
+ In the step above do not input arguments ( only intitial dirctory and name )
+8. Download typescript ( npm i -g typescript ; check version: tsc -v )
+9. Downlaod TypeScript SDK for Visual Studio 2017 ; link ->  https://www.microsoft.com/en-us/download/confirmation.aspx?id=55258
+10. ng serve -o ( To power the app  : Runs the code in developer mode)
+
+
+Undersatnding the Code
+------------------------------------
+------------------------------------
+
+package.json
+------------------
+dependencies :  Needed during run time ( --save ;; save is not required for v5.0 )
+devdependencies : NOT Needed during run time ; used during development ( --save-dev)
+
+node-modules 
+----------------
+Do not check it in (this folder contains all the dependecies/packages )
+
+package-lock.json
+------------------------------
+Delete it when you delete the node-modules so that it install it when you do npm install
+
+
+
+Typescript Examples 
+---------------------------------------
+
+1. intialize npm before importing the files : npm init -y ( -y flag is for yes to all questions)
+2. npm i -lite-server  : Download the lite server to run the html
+3. ng serve 
+
+4. Adding sourcemap : true to tsconfig.js will open f12 debug tools on the the typescript
+
+--Gulp 
+1. Install gulp globally :-  npm i -g gulp
+2. Add to package.json "build": "tsc && gulp minify"
+
+--Glup vs WebPack 
+Angular uses webPack instead of gulp becuase of bundling & modularity
+
+
+
+
+Inside Visual Studio Code
+------------------------------
+
+1. To view outdated packages on your code dir : npm outdated
+^ - indicates I am interested in the latest 2.x version ( look at typescript version under devdependencies for example )
+~ - indicates I want the latest 2.x.x versio or patch only
+
+Angular 
+-----------------------------
+
+- Using ( ng build --prod ) is going to bunddle the app into a single file main.js using webApp in the background
+- Use let for declaring parameters 
+- NoEmitOnError flag is set to true if you do not want to generate js file if your ts file has errors
+- to add jquery to your code at runtime we need a wrapper around the jquery(written in js) to use it in typescipt -> .ds/.d (discriptor class files)
+ (  1. npm i jquery  2. npm i @types/jquery --save-dev) . Also, import * as $ from 'jquery' to the .ts file.
+
+
+Food for thought 
+------------------
+
+- the blazor - web assembly
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
