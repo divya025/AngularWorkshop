@@ -1,0 +1,48 @@
+Angular Workshop- Day 2
+================================
+
+Env Setup
+----------------------
+
+Extns :
+- Angular Language Service (VSCode)
+- Augury (chrome)
+- Redux devtool (chrome)
+Link : http://blog.mgechev.com/2017/04/23/angular-tooling-codelyzer-angular-cli-ngrev/
+
+Understanding the Module/Component 
+---------------------------------------
+@NgModule decorator
+- imports : used to import other modules and inherit the componets into the current module.
+- declarations : when you are using that compnoent in that mdule add it here.
+- exports : if any other module imports current module all the exported componnents. 
+are acessible to the other modules.
+- providers : services are added here 
+- bootstrap : entry point or first componet to be rendered.
+
+1. Module acts as a wrapper around the component to allow inheritance or sharing.
+
+Understanding componets
+-------------------------------
+@Component decorator
+- selector : allows you to use componets as tags in html ( render the html page assosiated
+with the componet )
+- templateUrl : The html page related to the Component ( this is used to
+replace the <my-app> </my-app> tag from selector with html in this link )
+- styleUrls : Array of css style to be added to the html
+- template : contains html code instead of having a seperate file
+
+1. A component can belong to only one module.
+
+Lab 2 Tips
+-------------------------------
+- If you want to use <my-about> tag in index.html you have to add it to
+bootstrap 
+- Another way to use it is by adding the tag to app.compnoent.html
+- To start up the app use --> ng serve -o
+
+
+Food for Thought
+------------------------
+- Async/Await ( link : https://basarat.gitbooks.io/typescript/docs/promise.html )
+- Redux Architecture
