@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { getLocaleDateTimeFormat } from '@angular/common/src/i18n/locale_data_api';
 import { MatSnackBar } from '@angular/material';
 
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'my-collection',
@@ -20,7 +21,9 @@ export class CollectionComponent implements OnInit {
   openingTime:Date;
   closingTime:Date;
 
-  constructor(private _snackBar: MatSnackBar, private _dataServive: DataService) { 
+  searchTerm$ = new Subject<string>();
+
+  constructor(private _snackBar: MatSnackBar, private _dataService: DataService) { 
      
     this.openingTime = new Date(); 
     this.openingTime.setHours(10, 0); 
@@ -30,7 +33,13 @@ export class CollectionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.books = this._dataServive.getBooks();
+    this.getBooks();
+
+    this._dataService.search(this.searchTerm$)
+    .subscribe(books => {
+    this.books = books;
+    });
+   
   }
 
   updateMessage(message: string, type: string): void { 
@@ -44,5 +53,11 @@ export class CollectionComponent implements OnInit {
   onRatingUpdate(book: Ibook): void {
     this.updateMessage(book.title, " Rating has been updated"); 
   }
+
+  getBooks(): void {
+    this._dataService.getBooks().subscribe(
+    books => this.books = books,
+    error => this.updateMessage(<any>error, 'ERROR'));
+    }
 
 }

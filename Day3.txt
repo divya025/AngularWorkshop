@@ -11,3 +11,30 @@ Parent-Child Component
 -------------------------
 @Input : indicates the value is inherited or input from the Parent
 @Output : the value that will be emitted by the child.
+
+Understanding the code
+----------------------------------------
+
+- Constructor is loaded before the angular components are created and ngInit is called. So services should be under ngInit for purpose of debugging the services.
+- Angular  material icon : Replace the text (star with face) will change the icon
+	link -> https://material.angular.io/
+
+--- Promise vs Observable
+- When nobody is subscribed to promise , even then  promise is started and terminates.
+- Observable on the other hand does not start when there are no subscribers.
+- On time out of subscriber the observable terminates.
+- Promise is executed only once. If you re-execute promise again same value is returned. To re-execute the promise you have to create a new promise.
+- Observable on the other hand returns two different values.
+
+- To see the path where file will be created use : ng g s hello --dry-run  ( generate a service )
+
+- Some important funtions : RxJs
+..   import "rxjs/add/operator/debounceTime";
+..   import "rxjs/add/operator/distinctUntilChanged";
+..   import "rxjs/add/operator/switchMap"
+link -> https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35#debouncetime
+
+
+
+
+
