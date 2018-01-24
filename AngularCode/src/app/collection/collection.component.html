@@ -1,0 +1,37 @@
+<h3>{{pageTitle}}&nbsp;
+  <mat-slide-toggle class="plr-15" color="primary" [(ngModel)]="showOperatingHours">
+    {{showOperatingHours ? 'Hide' : 'Show'}} library hours
+  </mat-slide-toggle>
+</h3> 
+
+<div [hidden]="!showOperatingHours">
+  <mat-card>
+    <mat-card-subtitle>
+      <strong>Operating Hours</strong>
+    </mat-card-subtitle>
+    <mat-card-content>{{openingTime | date:'shortTime'}} - {{closingTime | date:'shortTime'}} (M-F)</mat-card-content>
+  </mat-card>
+
+
+</div>
+<div>
+  <mat-list>
+    <mat-list-item *ngFor="let book of books">
+      <mat-icon mat-list-icon>book</mat-icon>
+      <h3 mat-line><strong>{{book.title}}</strong></h3>
+      <p mat-line>
+        <span>{{book.author}}</span>
+      </p>
+      <p mat-line>
+        <my-rating [rating]="book.rating" [book]="book" 
+        (ratingClicked)="onRatingUpdate($event)">
+      </my-rating>
+      </p>
+      <p mat-line>
+        <span [class]="book.isCheckedOut ? 'chip chip-danger' : 'chip chip-success'" >
+          {{book.isCheckedOut ? 'Checked-Out' : 'Available'}}
+        </span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</div> 
