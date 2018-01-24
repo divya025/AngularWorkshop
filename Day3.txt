@@ -1,0 +1,13 @@
+Angular Workshop- Day 3
+================================
+
+Recap
+------------
+One way binding : Box []
+Event Listener : ()
+Two way Bining : Banana in a box [( )]
+
+Parent-Child Component 
+-------------------------
+@Input : indicates the value is inherited or input from the Parent
+@Output : the value that will be emitted by the child.
