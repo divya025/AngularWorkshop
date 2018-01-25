@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { getLocaleDateTimeFormat } from '@angular/common/src/i18n/locale_data_api';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+
 import { BookDetailComponent } from '../book-detail/book-detail.component';
+import { NewBookComponent } from '../new-book/new-book.component';
 
 import { Subject } from 'rxjs/Subject';
 
@@ -97,4 +99,29 @@ export class CollectionComponent implements OnInit {
     error => this.updateMessage(<any>error, 'ERROR'));
     }
 
+    addBook(): void {
+      let config = {width: '650px', height: '650px', position: {top: '50px'},
+      disableClose: true};
+      let dialogRef = this._dialog.open(NewBookComponent, config);
+      dialogRef.afterClosed().subscribe(newBook => {
+      if (newBook) {
+      this._dataService.getNextId().subscribe(
+      (id) =>
+      {
+      newBook.id = id;
+      this._dataService.addBook(newBook)
+      .subscribe(
+      () =>
+      {
+      this.getBooks()
+      this._snackBar.open(`Book added!`,
+      'DISMISS', {
+        duration: 3000
+      });
+      },
+      error => this.updateMessage(<any>error, 'ERROR'));
+      });
+      }
+      });
+     }
 }

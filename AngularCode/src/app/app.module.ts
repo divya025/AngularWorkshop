@@ -21,6 +21,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookGuardService } from './guards/book-guard.service';
+import { NewBookComponent } from './new-book/new-book.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { BookGuardService } from './guards/book-guard.service';
     RatingCategoryPipe,
     RatingComponent,
     TabsComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    NewBookComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,9 @@ import { BookGuardService } from './guards/book-guard.service';
     AppRoutingModule
   ],
   providers: [BookGuardService, DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    NewBookComponent
+    ]
 })
 export class AppModule { }
