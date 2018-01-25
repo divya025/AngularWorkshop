@@ -13,15 +13,8 @@ const routes: Routes = [
    },
    {
    path: 'collection',
-   component: CollectionComponent
+   loadChildren: 'app/collection/collection.module#CollectionModule'
    },
-
-   {
-    path: 'collection/:id',
-    canActivate: [BookGuardService],
-    component: BookDetailComponent
-    },
-   
    {
    path: '',
    redirectTo: '/about',

@@ -14,7 +14,7 @@ export class BookGuardService {
 
   canActivate(route: ActivatedRouteSnapshot) {
     // parse the book id from the route
-    let id = +route.url[1].path;
+    let id = +route.url[0].path;
     if (isNaN(id)) {
     // start a new navigation to redirect to list page
     this._router.navigate(['/collection']);

@@ -1,4 +1,11 @@
 Angular Workshop- Day 4
-================================
+=================================
 
-A route
+Build in Production mode
+----------------------------
+
+ng build --prod 
+This will generate dist/ folder which will have the files we 
+need to ship for production or send to the web server.
+
+
