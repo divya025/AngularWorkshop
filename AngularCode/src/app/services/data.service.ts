@@ -89,5 +89,14 @@ export class DataService {
             .catch(this.handleError);
            }
 
+           canActivate(id): Observable<boolean> {
+            return this._http.get(`${this._booksUrl+"/canactivate"}/${id}`)
+            .map((response: Response) => {
+            let canactivate: boolean = <boolean>response.json();
+            return canactivate;
+            })
+            .catch(this.handleError);
+            }
+
       }
 

@@ -1,3 +1,4 @@
+import { DataService } from './services/data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -19,7 +20,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-
+import { BookGuardService } from './guards/book-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     RouterModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [BookGuardService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
